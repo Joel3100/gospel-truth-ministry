@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./Pages/Home";
 import Sermons from "./pages/Sermons";
 import Events from "./pages/Events";
+import EventLDetail from "./Pages/EventDetail";
 import Blog from "./Pages/Blog";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
@@ -16,12 +17,13 @@ function App() {
 
         <main className="flex-grow">
           <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/sermons" element={<Sermons />} />
-            <Route path="/events" element={<Events />} />
-            <Route path="/blog" element={<Blog />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/contact" element={<Contact />} />
+            <Route path="/"           element={<Home />} />
+            <Route path="/sermons"    element={<Sermons />} />
+            <Route path="/events"     element={<Events />} />
+            <Route path="/events/:id" element={<EventLDetail />} />
+            <Route path="/blog"       element={<Blog />} />
+            <Route path="/about"      element={<About />} />
+            <Route path="/contact"    element={<Contact />} />
           </Routes>
         </main>
 

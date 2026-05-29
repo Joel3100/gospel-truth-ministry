@@ -114,7 +114,9 @@ export default function UpcomingEvents() {
         {/* ── 3-COLUMN CARD GRID ── */}
         <div className="grid grid-cols-1 gap-5 md:grid-cols-3">
           {mockEvents.map((event) => (
-            <EventCard key={event.id} {...event} />
+            <Link to={`/events/${event.id}`} className="block group">
+              <EventCard key={event.id} {...event} />
+            </Link>
           ))}
         </div>
 

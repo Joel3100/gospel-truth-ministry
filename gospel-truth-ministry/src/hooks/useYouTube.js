@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 
-const useYouTube = (playlistId, maxResults = 20) => {
+const useYouTube = (playlistId, maxResults = 30) => {
   const [videos, setVideos] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
