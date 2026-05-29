@@ -57,7 +57,7 @@ const useYouTube = (playlistId, maxResults = 30) => {
     }
 
     fetchVideos()
-  }, [playlistId])
+  }, [playlistId, maxResults])
 
   return { videos, loading, error }
 }

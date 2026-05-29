@@ -1,8 +1,8 @@
-export default function SermonCard({ id, title, publishedAt, thumbnail }) {
+const SermonCard = ({ id, title, publishedAt, thumbnail }) => {
   const formattedDate = new Date(publishedAt).toLocaleDateString("en", {
     year: "numeric",
     month: "long",
-    dat: "numeric",
+    day: "numeric",
   });
 
   const youtubeUrl = `https://www.youtube.com/watch?v=${id}`;
@@ -67,4 +67,6 @@ export default function SermonCard({ id, title, publishedAt, thumbnail }) {
       </div>
     </div>
   );
-}
+};
+
+export default SermonCard;

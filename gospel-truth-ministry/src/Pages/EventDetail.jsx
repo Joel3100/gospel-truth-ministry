@@ -79,12 +79,6 @@ export default function EventLDetail() {
         {/* Back button — top left */}
         <button
           onClick={() => navigate(-1)}
-          /*
-            navigate(-1) → go back one page in browser history.
-            Like clicking the browser's back button.
-            Better than hardcoding Link to="/events" because
-            the user might have come from the home page events section.
-          */
           className="absolute z-10 flex items-center gap-2 px-4 py-2 text-sm transition-colors duration-200 rounded-full top-6 left-6 text-white/80 hover:text-white bg-black/30 hover:bg-black/50"
         >
           ← Back
@@ -123,13 +117,6 @@ export default function EventLDetail() {
               About This Event
             </h2>
             <div className="w-10 h-px mb-6 bg-brand-400" />
-            {/*
-              event.description has line breaks (\n).
-              Split by newline → map each paragraph into its own <p> tag.
-              
-              DSA: .split() divides a string into an array by a separator.
-              "Hello\nWorld".split('\n') → ['Hello', 'World']
-            */}
             {event.description.split("\n").map(
               (paragraph, i) =>
                 paragraph.trim() && (

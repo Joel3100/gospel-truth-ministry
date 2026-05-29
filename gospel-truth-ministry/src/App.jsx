@@ -4,6 +4,7 @@ import Sermons from "./pages/Sermons";
 import Events from "./pages/Events";
 import EventLDetail from "./Pages/EventDetail";
 import Blog from "./Pages/Blog";
+import BlogDetail from "./Pages/BlogDetail";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Navbar from "./components/Layout/Navbar";
@@ -22,6 +23,7 @@ function App() {
             <Route path="/events"     element={<Events />} />
             <Route path="/events/:id" element={<EventLDetail />} />
             <Route path="/blog"       element={<Blog />} />
+            <Route path="/blog/:id"   element={<BlogDetail />} />
             <Route path="/about"      element={<About />} />
             <Route path="/contact"    element={<Contact />} />
           </Routes>
