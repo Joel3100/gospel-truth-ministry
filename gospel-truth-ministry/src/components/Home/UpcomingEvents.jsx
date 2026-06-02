@@ -1,32 +1,8 @@
 import { Link } from "react-router-dom";
 import EventCard from "../EventCard";
+import events from "../../data/events";
 
-const mockEvents = [
-  {
-    id: "1",
-    title: "Sunday Worship Service",
-    date: "May 25, 2026",
-    time: "9:00 AM – 12:00 PM",
-    category: "Worship",
-    image: null,
-  },
-  {
-    id: "2",
-    title: "Youth Fellowship",
-    date: "June 15, 2026",
-    time: "6:00 PM – 8:00 PM",
-    category: "Youth",
-    image: null,
-  },
-  {
-    id: "3",
-    title: "Wednesday Bible Study",
-    date: "October 10, 2026",
-    time: "6:00 PM – 8:00 PM",
-    category: "Study",
-    image: null,
-  },
-];
+const upcomingEvents = events.slice(0, 3);
 
 export default function UpcomingEvents() {
   return (
@@ -54,7 +30,7 @@ export default function UpcomingEvents() {
 
         {/* ── 3-COLUMN CARD GRID ── */}
         <div className="grid grid-cols-1 gap-5 md:grid-cols-3">
-          {mockEvents.map((event) => (
+          {upcomingEvents.map((event) => (
             <EventCard key={event.id} {...event} />
           ))}
         </div>

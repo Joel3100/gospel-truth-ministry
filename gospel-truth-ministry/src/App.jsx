@@ -5,7 +5,8 @@ import Events from "./pages/Events";
 import EventLDetail from "./Pages/EventDetail";
 import Blog from "./Pages/Blog";
 import BlogDetail from "./Pages/BlogDetail";
-import About from "./pages/About";
+import About from "./Pages/About";
+import Beliefs from "./Pages/Beliefs";
 import Contact from "./pages/Contact";
 import Navbar from "./components/Layout/Navbar";
 import Footer from "./components/Layout/Footer";
@@ -25,6 +26,7 @@ function App() {
             <Route path="/blog"       element={<Blog />} />
             <Route path="/blog/:id"   element={<BlogDetail />} />
             <Route path="/about"      element={<About />} />
+            <Route path="/beliefs"    element={<Beliefs />} />
             <Route path="/contact"    element={<Contact />} />
           </Routes>
         </main>

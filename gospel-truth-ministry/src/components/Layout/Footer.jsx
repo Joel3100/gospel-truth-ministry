@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import logo from "../../assets/logo.svg";
+import { FaYoutube, FaFacebook, FaTelegramPlane } from "react-icons/fa";
 
 const quickLinks = [
   { name: "Home", path: "/" },
@@ -40,15 +41,36 @@ export default function Footer() {
             of God and making disciples.
           </p>
 
-          <a
-            href="https://www.youtube.com/@dawitfassilministries"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-2 text-sm transition-colors duration-200 text-brand-300 hover:text-white w-fit"
-          >
-            <span className="text-lg">▶</span>
-            Watch on YouTube
-          </a>
+          {/* Replace the YouTube-only social section with this: */}
+          <div className="flex items-center gap-4 mt-2">
+            <a
+              href="https://www.youtube.com/@dawitfassilministries"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="YouTube"
+              className="text-xl transition-colors duration-200 text-brand-300 hover:text-red-400"
+            >
+              <FaYoutube />
+            </a>
+            <a
+              href="https://www.facebook.com/profile.php?id=100064395113270&mibextid=ZbWKwL"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Facebook"
+              className="text-xl transition-colors duration-200 text-brand-300 hover:text-blue-400"
+            >
+              <FaFacebook />
+            </a>
+            <a
+              href="https://t.me/DawitFassilMinistry"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Telegram"
+              className="text-xl transition-colors duration-200 text-brand-300 hover:text-sky-400"
+            >
+              <FaTelegramPlane />
+            </a>
+          </div>
         </div>
 
         {/* ── COLUMN 2: Quick Links ── */}
