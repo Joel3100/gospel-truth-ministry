@@ -30,18 +30,12 @@ export default function Footer() {
               <span className="text-lg font-bold text-white font-heading">
                 Gospel Truth
               </span>
-              <span className="text-xs tracking-widest uppercase text-brand-400">
+              <span className="text-xs tracking-widest uppercase text-brand-300">
                 Ministry
               </span>
             </div>
           </Link>
 
-          <p className="text-sm leading-relaxed text-brand-300">
-            A Reformed Baptist church committed to preaching the whole counsel
-            of God and making disciples.
-          </p>
-
-          {/* Replace the YouTube-only social section with this: */}
           <div className="flex items-center gap-4 mt-2">
             <a
               href="https://www.youtube.com/@dawitfassilministries"

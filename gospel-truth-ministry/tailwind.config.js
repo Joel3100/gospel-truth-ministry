@@ -22,8 +22,11 @@ export default {
         }
       },
       fontFamily: {
-        heading: [ 'Playfair Display','Georgia', 'serif'],   // for titles — feels classic & churchlike
-        body: ['Inter', 'sans-serif'],   // for body text — clean & readable
+        heading: [ 'Playfair Display','Georgia', 'serif'],   
+        body: ['Inter', 'sans-serif'],
+
+        amharicHeading:   ['Noto Serif Ethiopic', 'Georgia', 'serif'],
+        amharicBody:    ['Noto Sans Ethiopic', 'Inter', 'sans-serif'],
       },
     },
   },

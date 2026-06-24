@@ -4,24 +4,15 @@ import { Link } from "react-router-dom";
 const slides = [
   {
     id: 1,
-    image: "/hero-1.jpg",
-    headline: "Welcome to Gospel Truth Ministry",
-    subtitle:
-      '"For what we proclaim is not ourselves, but Jesus Christ as Lord." — 2 Cor 4:5',
+    image: "/hero.jpg",
+    headline: "እንኳን ወደ የወንጌል እውነት ቤተክርስቲያን በደህና መጡ",
+    subtitle: "“ክርስቶስ ኢየሱስን ጌታ እንደ ሆነ እንጂ ራሳችንን አንሰብክም።” — 2ኛ ቆሮ 4፥5",
   },
   {
     id: 2,
-    image: "/hero-2.jpg",
-    headline: "Rooted in Scripture. Alive in Christ.",
-    subtitle:
-      "A Reformed Baptist church committed to preaching the whole counsel of God.",
-  },
-  {
-    id: 3,
-    image: "/hero-3.jpg",
-    headline: "Join Us Every Sunday",
-    subtitle:
-      "Morning Worship 9:00 AM · Evening Service 6:00 PM · Jimma, Ethiopia",
+    image: "/hero-channel-banner.jpg",
+    headline: " ",
+    subtitle: " ",
   },
 ];
 
@@ -76,15 +67,11 @@ export default function Hero() {
 
       {/* ── SLIDE CONTENT ── */}
       <div className="relative z-10 max-w-4xl px-6 mx-auto text-center">
-        <p className="mb-4 text-sm font-medium tracking-widest uppercase text-white/70">
-          Reformed Baptist Church · Jimma, Ethiopia
-        </p>
-
-        <h1 className="mb-6 text-4xl font-bold leading-tight text-white transition-all duration-500 font-heading md:text-6xl drop-shadow-lg">
+        <h1 className="mb-6 text-4xl font-bold leading-tight text-white transition-all duration-500 font-amharicHeading md:text-6xl drop-shadow-lg">
           {slides[current].headline}
         </h1>
 
-        <p className="max-w-2xl mx-auto mb-10 text-base italic leading-relaxed text-white/80 md:text-lg drop-shadow">
+        <p className="max-w-2xl mx-auto mb-10 text-base italic leading-relaxed text-white/80 md:text-lg drop-shadow font-amharicHeading">
           {slides[current].subtitle}
         </p>
 
