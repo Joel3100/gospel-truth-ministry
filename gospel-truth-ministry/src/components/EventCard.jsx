@@ -1,15 +1,15 @@
 import { Link } from "react-router-dom";
 
 const categoryColors = {
-  Worship: "bg-brand-100 text-brand-700",
-  Teaching: "bg-blue-100 text-blue-700",
-  Study: "bg-amber-100 text-amber-700",
-  Prayer: "bg-purple-100 text-purple-700",
-  Youth: "bg-green-100 text-green-700",
-  Special: "bg-rose-100 text-rose-700",
+  Worship:  'bg-brand-100  text-brand-700',
+  Teaching: 'bg-blue-100   text-blue-700',
+  Study:    'bg-amber-100  text-amber-700',
+  Prayer:   'bg-purple-100 text-purple-700',
+  Youth:    'bg-green-100  text-green-700',
+  Special:  'bg-rose-100   text-rose-700',
 };
 
-const EventCard = ({ id, title, date, time, category, image }) => {
+const EventCard = ({ id, title, date, time, location, category, image }) => {
   const dateObj = new Date(date);
   const month = dateObj.toLocaleString("en", { month: "short" }).toUpperCase();
   const day = dateObj.getDate();

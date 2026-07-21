@@ -1,34 +1,34 @@
 import { Link } from "react-router-dom";
 import serviceTimes from "../../data/serviceTimes";
+import { useLanguage } from "../../i18n/LanguageContext";
 
 const sundayServices = serviceTimes.filter(
   (service) => service.day === "Sunday",
 );
 
 export default function ServiceTimes() {
+  const { t, fBody } = useLanguage();
+
   return (
     <section className="py-20 bg-brand-900">
       <div className="grid items-center max-w-6xl grid-cols-1 gap-16 px-6 mx-auto md:grid-cols-2">
         {/* ── LEFT COLUMN ── */}
         <div>
           <p className="mb-3 text-sm font-medium tracking-widest uppercase text-brand-400">
-            Service Times
+            {t("serviceTimes.label")}
           </p>
           <h2 className="mb-4 text-3xl font-bold text-white font-heading md:text-4xl">
-            Worship With Us
+            {t("serviceTimes.title")}
           </h2>
           <div className="w-12 h-px mb-6 bg-brand-500" />
           <p className="mb-8 text-base leading-relaxed text-brand-200">
-            Join us each week as we gather to worship, learn, and grow together
-            in the grace of God. Whether you are coming for Sunday worship or
-            our midweek Bible study, you will find a warm and welcoming
-            community to connect with.
+            {t("serviceTimes.description")}
           </p>
           <Link
             to="/contact"
             className="inline-block px-6 py-3 font-semibold transition-colors duration-200 bg-white rounded-lg text-brand-800 hover:bg-brand-100"
           >
-            Be Our Guest
+            {t("serviceTimes.beOurGuest")}
           </Link>
         </div>
 
@@ -72,7 +72,7 @@ export default function ServiceTimes() {
                        hover:bg-brand-800 hover:text-white px-5 py-2.5 rounded-lg 
                        text-sm font-medium transition-all duration-200"
           >
-            View Full Weekly Schedule →
+            {t("serviceTimes.viewFull")}
           </Link>
         </div>
       </div>

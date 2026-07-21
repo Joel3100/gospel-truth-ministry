@@ -1,18 +1,20 @@
 import { Link } from "react-router-dom";
 import logo from "../../assets/logo.svg";
 import { FaYoutube, FaFacebook, FaTelegramPlane } from "react-icons/fa";
+import { useLanguage } from "../../i18n/LanguageContext";
 
 const quickLinks = [
-  { name: "Home", path: "/" },
-  { name: "Sermons", path: "/sermons" },
-  { name: "Events", path: "/events" },
-  { name: "Blog", path: "/blog" },
-  { name: "About", path: "/about" },
-  { name: "Contact", path: "/contact" },
+  { key: "nav.home", path: "/" },
+  { key: "nav.sermons", path: "/sermons" },
+  { key: "nav.events", path: "/events" },
+  { key: "nav.blog", path: "/blog" },
+  { key: "nav.about", path: "/about" },
+  { key: "nav.contact", path: "/contact" },
 ];
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
+  const { t, language, fBody } = useLanguage();
 
   return (
     <footer className="bg-brand-900 text-brand-200">
@@ -70,12 +72,17 @@ export default function Footer() {
         {/* ── COLUMN 2: Quick Links ── */}
         <div className="flex flex-col gap-4">
           <h3 className="text-lg font-semibold text-white font-heading">
-            Quick Links
+            {t("footer.quickLinks")}
           </h3>
           <ul className="flex flex-col gap-2">
             {quickLinks.map((link) => (
               <li key={link.path}>
-                <Link to={link.path}>{link.name}</Link>
+                <Link
+                  to={link.path}
+                  className="inline-block text-sm transition-all duration-200 text-brand-300 hover:text-white hover:translate-x-1"
+                >
+                  {t(link.key)}
+                </Link>
               </li>
             ))}
           </ul>
@@ -85,7 +92,7 @@ export default function Footer() {
         <div className="flex flex-col gap-6">
           <div className="flex flex-col gap-3">
             <h3 className="text-lg font-semibold text-white font-heading">
-              Contact Us
+              {t("footer.contactUs")}
             </h3>
             <ul className="flex flex-col gap-2 text-sm text-brand-300">
               <li>📍 Jimma, Ethiopia</li>

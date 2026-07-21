@@ -1,4 +1,8 @@
+import { useLanguage } from "../i18n/LanguageContext";
+
 const SermonCard = ({ id, title, publishedAt, thumbnail }) => {
+  const { t } = useLanguage();
+
   const formattedDate = new Date(publishedAt).toLocaleDateString("en", {
     year: "numeric",
     month: "long",
@@ -9,7 +13,7 @@ const SermonCard = ({ id, title, publishedAt, thumbnail }) => {
   const embedUrl = `https://www.youtube.com/embed/${id}`;
 
   return (
-    <div className="overflow-hidden transition-all duration-200 bg-white border border-gray-100 shadow-sm group rounded-2xl hover:shadow-md hover:-translate-y-1">
+    <div className="overflow-hidden transition-all duration-200 bg-white border border-gray-100 shadow-sm rounded-2xl hover:shadow-md hover:-translate-y-1 group">
       {/* THUMBNAIL */}
       <div className="relative overflow-hidden">
         {thumbnail ? (
@@ -51,7 +55,7 @@ const SermonCard = ({ id, title, publishedAt, thumbnail }) => {
             rel="noopener noreferrer"
             className="flex-1 py-2 text-xs font-semibold text-center text-white transition-colors duration-200 rounded-lg bg-brand-600 hover:bg-brand-700"
           >
-            ▶ Watch
+            ▶ {t("sermons.watch")}
           </a>
 
           {/* Open on YouTube */}

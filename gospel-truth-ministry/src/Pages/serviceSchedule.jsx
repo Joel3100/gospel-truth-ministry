@@ -1,20 +1,25 @@
 import serviceTimes from "../data/serviceTimes";
+import { useLanguage } from "../i18n/LanguageContext";
 
 export default function ServiceSchedule() {
+  const { t, language, fBody } = useLanguage();
+
+  const getDay     = (s) => language === 'am' ? s.dayAm     : s.day
+  const getProgram = (s) => language === 'am' ? s.programAm : s.program
+  
   return (
     <div className="min-h-screen bg-gray-50">
       {/* ── PAGE HEADER ── */}
       <div className="py-16 bg-brand-900">
         <div className="max-w-4xl px-6 mx-auto text-center">
           <p className="mb-2 text-sm font-medium tracking-widest uppercase text-brand-300">
-            Weekly Schedule
+            {t('schedule.label')}
           </p>
           <h1 className="mb-4 text-4xl font-bold text-white font-heading md:text-5xl">
-            Service Times
+            {t('schedule.title')}
           </h1>
           <p className="max-w-xl mx-auto leading-relaxed text-brand-200">
-            Join us throughout the week — every gathering is an opportunity to
-            grow in grace and community.
+            {t('schedule.description')}
           </p>
         </div>
       </div>
@@ -27,13 +32,13 @@ export default function ServiceSchedule() {
               <tr className="border-b border-gray-200 bg-brand-50">
                 <th className="w-16 px-6 py-4"></th>
                 <th className="px-6 py-4 text-xs font-semibold tracking-wide uppercase text-brand-700">
-                  Day
+                  {t('schedule.day')}
                 </th>
                 <th className="px-6 py-4 text-xs font-semibold tracking-wide uppercase text-brand-700">
-                  Time
+                  {t('schedule.time')}
                 </th>
                 <th className="px-6 py-4 text-xs font-semibold tracking-wide uppercase text-brand-700">
-                  Program
+                  {t('schedule.program')}
                 </th>
               </tr>
             </thead>
@@ -55,14 +60,14 @@ export default function ServiceSchedule() {
                         <Icon />
                       </div>
                     </td>
-                    <td className="px-6 py-4 text-sm font-medium text-gray-800">
-                      {service.day}
+                    <td className={`px-6 py-4 text-sm font-medium text-gray-800 ${fBody}`}>
+                      {getDay(service)}
                     </td>
                     <td className="px-6 py-4 text-sm text-gray-500">
                       {service.time}
                     </td>
-                    <td className="px-6 py-4 text-sm text-gray-600">
-                      {service.program}
+                    <td className={`px-6 py-4 text-gray-600 text-sm ${fBody}`}>
+                      {getProgram(service)}
                     </td>
                   </tr>
                 );
@@ -84,15 +89,15 @@ export default function ServiceSchedule() {
                   <Icon />
                 </div>
                 <div>
-                  <p className="text-sm font-medium text-gray-800">
-                    {service.day}
+                  <p className={`text-gray-800 font-medium text-sm ${fBody}`}>
+                    {getDay(service)}
                     <span className="font-normal text-gray-400">
                       {" "}
                       — {service.time}
                     </span>
                   </p>
-                  <p className="text-gray-500 text-xs mt-0.5">
-                    {service.program}
+                  <p className={`text-gray-500 text-xs mt-0.5 ${fBody}`}>
+                    {getProgram(service)}
                   </p>
                 </div>
               </div>

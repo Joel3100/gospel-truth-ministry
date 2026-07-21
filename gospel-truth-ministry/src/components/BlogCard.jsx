@@ -1,15 +1,16 @@
 import { Link } from "react-router-dom";
+import { useLanguage } from "../i18n/LanguageContext";
 
 const getExcerpt = (content) =>
   content.split("\n\n")[0].replace(/\n/g, " ").slice(0, 180) + "...";
 
 // Category color map
 const categoryColors = {
-  Theology: "bg-brand-100  text-brand-700",
-  Family: "bg-green-100  text-green-700",
-  Prayer: "bg-purple-100 text-purple-700",
-  Announcements: "bg-amber-100  text-amber-700",
-  Devotional: "bg-rose-100   text-rose-700",
+  Theology:      'bg-brand-100  text-brand-700',
+  Family:        'bg-green-100  text-green-700',
+  Prayer:        'bg-purple-100 text-purple-700',
+  Announcements: 'bg-amber-100  text-amber-700',
+  Devotional:    'bg-rose-100   text-rose-700',
 };
 
 const BlogCard = ({
@@ -22,6 +23,8 @@ const BlogCard = ({
   image,
   content,
 }) => {
+  const { t, fBody, fHeading } = useLanguage();
+  
   return (
     <Link to={`/blog/${id}`} className="block group">
       <div className="flex flex-col h-full overflow-hidden transition-all duration-200 bg-white border border-gray-100 shadow-sm rounded-2xl hover:shadow-md hover:-translate-y-1">
@@ -44,7 +47,7 @@ const BlogCard = ({
             >
               {category}
             </span>
-            <span className="text-xs text-gray-400">{readTime} read</span>
+            <span className="text-xs text-gray-400">{readTime} {t('blog.read')}</span>
           </div>
 
           {/* Title */}

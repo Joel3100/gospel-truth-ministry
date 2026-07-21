@@ -1,4 +1,3 @@
-/* eslint-disable react-refresh/only-export-components */
 import { createContext, useContext, useState } from "react";
 import translations from "./translations";
 
@@ -20,13 +19,24 @@ export const LanguageProvider = ({ children }) => {
     return value;
   };
 
-  const toggleLanguage = () => {
+  const toggleLanguage = () =>
     setLanguage((prev) => (prev === "am" ? "en" : "am"));
-  };
+
+  const isAmharic = language === "am";
+  const fHeading = isAmharic ? "font-amharicHeading" : "font-heading";
+  const fBody = isAmharic ? "font-amharicBody" : "";
 
   return (
     <LanguageContext.Provider
-      value={{ language, setLanguage, toggleLanguage, t }}
+      value={{
+        language,
+        setLanguage,
+        toggleLanguage,
+        t,
+        fHeading,
+        fBody,
+        isAmharic,
+      }}
     >
       {children}
     </LanguageContext.Provider>

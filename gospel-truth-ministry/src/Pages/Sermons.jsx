@@ -2,14 +2,14 @@ import { useState } from "react";
 import useYouTube from "../hooks/useYouTube";
 import SermonCard from "../components/SermonCard";
 import playlists from "../data/playlists";
+import { useLanguage } from "../i18n/LanguageContext";
 
 export default function Sermon() {
   const defaultPlaylist = playlists.find((p) => p.isDefault) || playlists[0];
   const [selectedId, setSelectedId] = useState(defaultPlaylist.id);
-
   const { videos, loading, error } = useYouTube(selectedId);
-
   const selectedPlaylist = playlists.find((p) => p.id === selectedId);
+  const { t, fBody } = useLanguage();
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -17,14 +17,13 @@ export default function Sermon() {
       <div className="py-16 bg-brand-900">
         <div className="max-w-6xl px-6 mx-auto text-center">
           <p className="mb-2 text-sm font-medium tracking-widest uppercase text-brand-300">
-            The Word Preached
+            {t("sermons.pageLabel")}
           </p>
           <h1 className="mb-4 text-4xl font-bold text-white font-heading md:text-5xl">
-            Sermons
+            {t("sermons.pageTitle")}
           </h1>
           <p className="max-w-xl mx-auto leading-relaxed text-brand-200">
-            Listen to messages from Gospel Truth Ministry. Rooted in Scripture,
-            centered on Christ.
+            {t("sermons.pageDesc")}
           </p>
         </div>
       </div>
@@ -81,15 +80,15 @@ export default function Sermon() {
         {error && !loading && (
           <div className="py-20 text-center">
             <p className="mb-4 text-4xl">⚠️</p>
-            <p className="mb-2 font-medium text-gray-600">
-              Could not load sermons
+            <p className={`text-gray-600 font-medium mb-2 ${fBody}`}>
+              {t("sermons.error")}
             </p>
             <p className="mb-6 text-sm text-gray-400">{error}</p>
             <button
-              onClick={() => setSelectedId(selectedId)} 
+              onClick={() => setSelectedId(selectedId)}
               className="px-6 py-2 text-sm text-white transition-colors duration-200 rounded-lg bg-brand-600 hover:bg-brand-700"
             >
-              Try Again
+              {t("sermons.tryAgain")}
             </button>
           </div>
         )}
@@ -97,8 +96,11 @@ export default function Sermon() {
         {/* ── VIDEOS GRID ── */}
         {!loading && !error && videos.length > 0 && (
           <>
-            <p className="mb-6 text-sm text-gray-400">
-              {videos.length} sermon{videos.length !== 1 ? "s" : ""} found
+            <p className={`text-gray-400 text-sm mb-6 ${fBody}`}>
+              {videos.length}{" "}
+              {videos.length !== 1
+                ? t("sermons.foundPlural")
+                : t("sermons.found")}
             </p>
             <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
               {videos.map((video) => (
@@ -112,7 +114,7 @@ export default function Sermon() {
         {!loading && !error && videos.length === 0 && (
           <div className="py-20 text-center">
             <p className="mb-4 text-4xl">📭</p>
-            <p className="text-gray-500">No sermons found in this playlist.</p>
+            <p className={`text-gray-500 ${fBody}`}>{t("sermons.notFound")}</p>
           </div>
         )}
       </div>

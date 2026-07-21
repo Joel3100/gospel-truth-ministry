@@ -1,19 +1,17 @@
 import { useState } from "react";
 import events from "../data/events";
 import EventCard from "../components/EventCard";
+import { useLanguage } from "../i18n/LanguageContext";
 
 const today = new Date();
 today.setHours(0, 0, 0, 0);
 
-const upcomingEvents = events.filter((event) => {
-  const eventDate = new Date(event.date);
-  return eventDate >= today;
-});
-
-const categories = ["All", ...new Set(events.map((event) => event.category))];
+const upcomingEvents = events.filter((e) => new Date(e.date) >= today);
+const categories = ["All", ...new Set(events.map((e) => e.category))];
 
 export default function Events() {
   const [selected, setSelected] = useState("All");
+  const { t, fBody, language } = useLanguage();
 
   const filtered =
     selected === "All"
@@ -26,14 +24,15 @@ export default function Events() {
       <div className="py-16 bg-brand-900">
         <div className="max-w-6xl px-6 mx-auto text-center">
           <p className="mb-2 text-sm font-medium tracking-widest uppercase text-brand-300">
-            What's Happening
+            {t("events.pageLabel")}
           </p>
           <h1 className="mb-4 text-4xl font-bold text-white font-heading md:text-5xl">
-            Events
+            {t("events.pageTitle")}
           </h1>
-          <p className="max-w-xl mx-auto leading-relaxed text-brand-200">
-            Join us throughout the week. Every gathering is an opportunity to
-            grow in grace and community.
+          <p
+            className={`text-brand-200 max-w-xl mx-auto leading-relaxed ${fBody}`}
+          >
+            {t("events.pageDesc")}
           </p>
         </div>
       </div>
@@ -59,9 +58,12 @@ export default function Events() {
         </div>
 
         {/* ── RESULTS COUNT ── */}
-        <p className="mb-6 text-sm text-gray-400">
-          {filtered.length} upcoming event{filtered.length !== 1 ? "s" : ""}
-          {selected !== "All" && ` in ${selected}`}
+        <p className={`text-gray-400 text-sm mb-6 ${fBody}`}>
+          {filtered.length}{" "}
+          {language === "am"
+            ? `ቀጣይ መርሃ ግብር${filtered.length !== 1 ? "ዎች" : ""}`
+            : `upcoming event${filtered.length !== 1 ? "s" : ""}`}
+          {selected !== "All" && ` — ${selected}`}
         </p>
 
         {/* ── EVENTS GRID ── */}
@@ -75,14 +77,14 @@ export default function Events() {
           /* ── EMPTY STATE ── */
           <div className="py-20 text-center">
             <p className="mb-4 text-4xl">📅</p>
-            <p className="font-medium text-gray-500">
-              No upcoming {selected !== "All" ? selected : ""} events right now.
+            <p className={`text-gray-500 font-medium ${fBody}`}>
+              {t("events.notFound")}
             </p>
             <button
               onClick={() => setSelected("All")}
               className="mt-4 text-sm text-brand-600 hover:underline"
             >
-              View all events
+              {t("events.viewAllLink")}
             </button>
           </div>
         )}

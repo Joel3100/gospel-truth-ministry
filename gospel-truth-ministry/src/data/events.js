@@ -2,7 +2,7 @@ const events = [
   {
     id: '1',
     title: 'Sunday Morning Worship',
-    date: 'June 1, 2026',
+    date: 'July 27, 2026',
     time: '9:00 AM – 12:00 PM',
     location: 'Main Sanctuary, Jimma',
     category: 'Worship',
@@ -16,7 +16,7 @@ const events = [
   {
     id: '2',
     title: 'Sunday Evening Service',
-    date: 'June 1, 2026',
+    date: 'July 27, 2026',
     time: '6:00 PM – 8:00 PM',
     location: 'Main Sanctuary, Jimma',
     category: 'Teaching',
@@ -29,7 +29,7 @@ const events = [
   {
     id: '3',
     title: 'Wednesday Bible Study',
-    date: 'June 3, 2026',
+    date: 'July 30, 2026',
     time: '6:00 PM – 8:00 PM',
     location: 'Room 101, Jimma',
     category: 'Study',
@@ -42,7 +42,7 @@ const events = [
   {
     id: '4',
     title: 'Tuesday Prayer & Intercession',
-    date: 'June 2, 2026',
+    date: 'July 29, 2026',
     time: '6:00 PM – 8:00 PM',
     location: 'Prayer Room, Jimma',
     category: 'Prayer',
@@ -55,7 +55,7 @@ const events = [
   {
     id: '5',
     title: 'Friday Praise & Worship Night',
-    date: 'June 5, 2026',
+    date: 'August 1, 2026',
     time: '6:00 PM – 8:00 PM',
     location: 'Main Sanctuary, Jimma',
     category: 'Worship',
@@ -68,7 +68,7 @@ const events = [
   {
     id: '6',
     title: 'Saturday Youth Fellowship',
-    date: 'June 6, 2026',
+    date: 'August 2, 2026',
     time: '6:00 PM – 8:00 PM',
     location: 'Youth Hall, Jimma',
     category: 'Youth',
@@ -83,7 +83,7 @@ const events = [
   {
     id: '7',
     title: 'Gospel Truth Ministry Conference 2026',
-    date: 'July 15, 2026',
+    date: 'August 15, 2026',
     time: '9:00 AM – 5:00 PM',
     location: 'Main Sanctuary, Jimma',
     category: 'Special',
@@ -97,7 +97,7 @@ const events = [
   {
     id: '8',
     title: 'Evangelism & Outreach Day',
-    date: 'June 20, 2026',
+    date: 'August 10, 2026',
     time: '8:00 AM – 2:00 PM',
     location: 'Jimma City Center',
     category: 'Special',

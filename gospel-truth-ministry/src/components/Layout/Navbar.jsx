@@ -1,18 +1,20 @@
 import { useState } from "react";
 import { NavLink, Link } from "react-router-dom";
+import { useLanguage } from "../../i18n/LanguageContext";
 import logo from "../../assets/logo.svg";
-
-const navLinks = [
-  { name: "Home", path: "/" },
-  { name: "Sermons", path: "/sermons" },
-  { name: "Events", path: "/events" },
-  { name: "Blog", path: "/blog" },
-  { name: "About", path: "/about" },
-  { name: "Contact", path: "/contact" },
-];
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const { t, language, toggleLanguage } = useLanguage();
+
+  const navLinks = [
+    { name: t("nav.home"), path: "/" },
+    { name: t("nav.sermons"), path: "/sermons" },
+    { name: t("nav.events"), path: "/events" },
+    { name: t("nav.blog"), path: "/blog" },
+    { name: t("nav.about"), path: "/about" },
+    { name: t("nav.contact"), path: "/contact" },
+  ];
 
   const linkStyle = ({ isActive }) =>
     isActive
@@ -39,6 +41,7 @@ export default function Navbar() {
           </div>
         </Link>
 
+        {/* ── NAVIGATION LINKS (visible on desktop) ── */}
         <div className="items-center hidden gap-8 md:flex">
           {navLinks.map((link) => (
             <NavLink
@@ -50,6 +53,18 @@ export default function Navbar() {
               {link.name}
             </NavLink>
           ))}
+
+          {/* ── LANGUAGE TOGGLE BUTTON ── */}
+          <button
+            onClick={toggleLanguage}
+            className="flex items-center gap-1.5 text-brand-200 hover:text-white
+                       border border-brand-700 hover:border-brand-400 rounded-lg
+                       px-3 py-1.5 text-xs font-medium transition-all duration-200"
+            aria-label="Toggle language"
+          >
+            <span className="text-base leading-none">🌐</span>
+            {language === "am" ? "EN" : "አማ"}
+          </button>
         </div>
 
         {/* ── HAMBURGER BUTTON (visible on mobile only) ── */}
@@ -76,6 +91,14 @@ export default function Navbar() {
               {link.name}
             </NavLink>
           ))}
+
+          {/* Language toggle in mobile menu too */}
+          <button
+            onClick={toggleLanguage}
+            className="flex items-center gap-2 px-3 py-2 text-sm font-medium transition-all duration-200 border rounded-lg text-brand-200 hover:text-white border-brand-700 w-fit"
+          >
+            🌐 {language === "am" ? "Switch to English" : "አማርኛ ቀይር"}
+          </button>
         </div>
       )}
     </nav>

@@ -33,7 +33,7 @@ export default function WhoWeAre() {
             to="/about"
             className="inline-block px-8 py-3 font-semibold text-white transition-colors duration-200 rounded-lg bg-brand-600 hover:bg-brand-700"
           >
-            Learn More About Us →
+            {t("whoWeAre.learnMore")}
           </Link>
         </div>
       </div>
