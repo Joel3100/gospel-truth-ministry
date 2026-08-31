@@ -2,32 +2,31 @@ import { Link } from "react-router-dom";
 import { useLanguage } from "../../i18n/LanguageContext";
 
 export default function WhoWeAre() {
-  const { t } = useLanguage();
+  const { t, fHeading, fBody } = useLanguage();
   const paragraphs = t("whoWeAre.paragraphs");
 
   return (
-    <section className="py-24 bg-white">
+    <section className="py-24 transition-colors duration-200 bg-white dark:bg-gray-900">
       <div className="max-w-3xl px-6 mx-auto text-center">
-        {/* ── SECTION LABEL ── */}
-        <p className="mb-3 text-sm font-medium tracking-widest uppercase text-brand-600">
+        <p className="mb-3 text-sm font-medium tracking-widest uppercase text-brand-600 dark:text-brand-400">
           {t("whoWeAre.label")}
         </p>
-
-        {/* ── HEADING ── */}
-        <h2 className="mb-6 text-3xl font-bold font-heading text-brand-900 md:text-4xl">
+        <h2
+          className={`text-brand-900 dark:text-white text-3xl md:text-4xl
+                       font-bold mb-6 ${fHeading}`}
+        >
           {t("whoWeAre.title")}
         </h2>
-
-        {/* ── DECORATIVE DIVIDER ── */}
         <div className="w-16 h-px mx-auto mb-8 bg-brand-400" />
 
-        {/* ── PARAGRAPHS ── */}
-        <div className="flex flex-col gap-5 text-lg leading-relaxed text-gray-600 font-amharicBody">
+        <div
+          className={`flex flex-col gap-5 leading-relaxed text-lg
+                        text-gray-600 dark:text-gray-300 ${fBody}`}
+        >
           {Array.isArray(paragraphs) &&
-            paragraphs.map((para, index) => <p key={index}>{para}</p>)}
+            paragraphs.map((para, i) => <p key={i}>{para}</p>)}
         </div>
 
-        {/* ── BUTTON ── */}
         <div className="mt-10">
           <Link
             to="/about"

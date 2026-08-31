@@ -6,11 +6,11 @@ const getExcerpt = (content) =>
 
 // Category color map
 const categoryColors = {
-  Theology:      'bg-brand-100  text-brand-700',
-  Family:        'bg-green-100  text-green-700',
-  Prayer:        'bg-purple-100 text-purple-700',
-  Announcements: 'bg-amber-100  text-amber-700',
-  Devotional:    'bg-rose-100   text-rose-700',
+  Theology: "bg-brand-100  text-brand-700",
+  Family: "bg-green-100  text-green-700",
+  Prayer: "bg-purple-100 text-purple-700",
+  Announcements: "bg-amber-100  text-amber-700",
+  Devotional: "bg-rose-100   text-rose-700",
 };
 
 const BlogCard = ({
@@ -24,22 +24,19 @@ const BlogCard = ({
   content,
 }) => {
   const { t, fBody, fHeading } = useLanguage();
-  
+
   return (
     <Link to={`/blog/${id}`} className="block group">
-      <div className="flex flex-col h-full overflow-hidden transition-all duration-200 bg-white border border-gray-100 shadow-sm rounded-2xl hover:shadow-md hover:-translate-y-1">
-        {/* Top accent bar — or image if available */}
+      <div className="flex flex-col h-full overflow-hidden transition-all duration-200 bg-white border border-gray-100 shadow-sm dark:bg-gray-800 rounded-2xl dark:border-gray-700 hover:shadow-md hover:-translate-y-1">
         {image ? (
           <div
-            className="transition-transform duration-500 bg-center bg-cover h-44 group-hover:scale-105"
+            className="bg-center bg-cover h-44"
             style={{ backgroundImage: `url(${image})` }}
           />
         ) : (
           <div className="h-1 bg-brand-600" />
         )}
-
         <div className="flex flex-col flex-1 gap-3 p-6">
-          {/* Category + read time */}
           <div className="flex items-center justify-between">
             <span
               className={`text-xs font-medium px-2 py-0.5 rounded-full
@@ -47,20 +44,24 @@ const BlogCard = ({
             >
               {category}
             </span>
-            <span className="text-xs text-gray-400">{readTime} {t('blog.read')}</span>
+            <span className="text-xs text-gray-400 dark:text-gray-500">
+              {readTime} {t("blog.read")}
+            </span>
           </div>
-
-          {/* Title */}
-          <h3 className="text-lg font-bold leading-snug text-gray-900 transition-colors duration-200 font-heading group-hover:text-brand-700">
+          <h3
+            className={`text-gray-900 dark:text-white font-bold text-lg leading-snug
+                         group-hover:text-brand-600 dark:group-hover:text-brand-400
+                         transition-colors duration-200 ${fHeading}`}
+          >
             {title}
           </h3>
-
-          <p className="flex-1 text-sm leading-relaxed text-gray-500 line-clamp-3">
+          <p
+            className={`text-gray-500 dark:text-gray-400 text-sm leading-relaxed
+                        line-clamp-3 flex-1 ${fBody}`}
+          >
             {getExcerpt(content)}
           </p>
-
-          {/* Author + date */}
-          <div className="flex items-center justify-between pt-3 mt-auto text-xs text-gray-400 border-t border-gray-100">
+          <div className="flex justify-between pt-3 mt-auto text-xs text-gray-400 border-t border-gray-100 dark:text-gray-500 dark:border-gray-700">
             <span>{author}</span>
             <span>{date}</span>
           </div>

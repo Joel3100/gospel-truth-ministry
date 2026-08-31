@@ -19,7 +19,7 @@ const translations = {
       slides: [
         {
           headline: 'እንኳን ወደ የወንጌል እውነት ቤተክርስቲያን በደህና መጡ',
-          subtitle: '"ክርስቶስ ኢየሱስን ጌታ እንደ ሆነ እንጂ ራሳችንን አንሰብክም።" — 2ኛ ቆሮ 4፥5',
+          subtitle: '"ክርስቶስ ኢየሱስን ጌታ እንደ ሆነ እንጂ ራሳችንን አንሰብክም።"  — 2ኛ ቆሮ 4፥5',
         },
         { headline: '', subtitle: '' },
       ],
@@ -31,8 +31,8 @@ const translations = {
       label: 'ስለኛ',
       title: 'Who We Are',
       paragraphs: [
-        `የወንጌል እውነት ቤተክርስቲያን ወንጌላዊት፥ ተሐድሶዓዊት፥ እንዲሁም ክርስቶሳዊት የሆነች፣ ለእግዚአብሔር ቃል የታመነች፣ ቃሉን የምትሰብክ፣ እንደቃሉ ደቀመዛሙርቶችን የምታፈራ፤ በሀገረ ኢትዮጵያ፥ ጅማ ከተማ የምትገኝ ቤተክርስቲያን ናት። እንዲሁም በደቡብ፣ በደቡብ ምዕራብ፣ እና በምዕራብ ኢትዮጵያ አጥቢያ ጉባኤዎች ያሏት ናት፡፡`,
-        `ቤተክርስቲያኒቱ በሽማግሌዎች አስተዳደር የምትመራ ስትሆን፤ የቃሉ አገልጋዮችና የመንፈሳዊ ዘርፍ አባላት ሁሉ በሽማግሌዎች አመራር ስር የሚመሩ ናቸው፡፡ የቤተክርስቲያኒቱ ዋና አላማም ወንጌልን ያለፍርሃት በግልጽነት መስበክና፤ ክርስቶስን ማዕከል ያደረጉ እንዲሁም እሱን ብቻ የሚገልጡና የሚያከብሩ፣ የአባቶቻችንን አስተምህሮ መከራን በመቀበልና፥ ዋጋን በመክፈል ለሰው ልጆች ማድረስ ነው፡፡`,
+        `የወንጌል እውነት ቤተክርስቲያን ወንጌላዊት፥ ተሐድሶዓዊት፥ እንዲሁም ክርስቶሳዊት የሆነች፣ ለእግዚአብሔር ቃል የታመነች፣ ቃሉን የምትሰብክ፣ እንደቃሉ ደቀመዛሙርቶችን የምታፈራ፤ በሀገረ ኢትዮጵያ፥ ጅማ ከተማ የምትገኝ ቤተክርስቲያን ናት። እንዲሁም በደቡብ፣ በደቡብ ምዕራብ፣ እና በምዕራብ ኢትዮጵያ አጥቢያ ጉባኤዎች ያሏት ናት።`,
+        `ቤተክርስቲያኒቱ በሽማግሌዎች አስተዳደር የምትመራ ስትሆን፤ የቃሉ አገልጋዮችና የመንፈሳዊ ዘርፍ አባላት ሁሉ በሽማግሌዎች አመራር ስር የሚመሩ ናቸው። የቤተክርስቲያኒቱ ዋና አላማም ወንጌልን ያለፍርሃት በግልጽነት መስበክና፤ ክርስቶስን ማዕከል ያደረጉ እንዲሁም እሱን ብቻ የሚገልጡና የሚያከብሩ፣ የአባቶቻችንን አስተምህሮ መከራን በመቀበልና፥ ዋጋን በመክፈል ለሰው ልጆች ማድረስ ነው።`,
         `የወንጌል እውነት ቤተክርስቲያን በዋነኞቹ አእማደ እምነቶች ማለትም በቅድስት ሥላሴ፣ በኢየሱስ ክርስቶስ አምላክነትና ሰውነት፣ በመጽሓፍ ቅዱስ ስልጣን፣ በጸጋው ወንጌል፣ በኃጢአት ስርየት፣ በዳግም ምጽአት፣ በሚመጣው ፍርድ የምታምን ወንጌላዊት ጉባኤ ናት።`,
       ],
       learnMore: 'ስለኛ የበለጠ ይወቁ →',
@@ -135,7 +135,6 @@ const translations = {
       description: `እንዳሉ ይምጡ። የእግዚአብሔር ቃል በታማኝነት ሲሰበክ ይስሙ። ክርስቶስን የሚወድና እርስ በርሱ የሚወደዱ ማህበረሰብ ያግኙ።`,
       directions:  'አቅጣጫ ያግኙ',
       watchOnline: 'በመስመር ላይ ይመልከቱ',
-      location:    '📍 ጅማ፣ ኢትዮጵያ · እሁድ 9:00 ጠ.ጥ & 6:00 ከ.ሰ',
     },
 
     about: {
@@ -212,7 +211,7 @@ const translations = {
       followUs:    'ይከተሉን',
       findUs:      'ያግኙን',
       sendMessage: 'መልዕክት ይላኩ',
-      formTitle:   'ሊሰሙን እንወዳለን',
+      formTitle:   'ከእርስዎ ለመስማት እንወዳለን',
       name:        'ስምዎ',
       emailLabel:  'ኢሜይል አድራሻ',
       subject:     'ርዕሰ ጉዳይ',
@@ -230,14 +229,10 @@ const translations = {
     },
 
     footer: {
-      tagline:    'ወንጌላዊትና ተሐድሶዓዊት፣ ለቃሉ የተጋች አጥቢያ ቤተክርስቲያን',
       quickLinks: 'ፈጣን አገናኞች',
       contactUs:  'አግኙን',
-      serviceTime:'የአገልግሎት ሰዓታት',
-      watchYT:    'በዩቲዩብ ይመልከቱ',
+      location: 'ጅማ፣ ኢትዮጵያ',
       copyright:  'ሁሉም መብቶች የተጠበቁ ናቸው።',
-      verse:      '"ክርስቶስ ኢየሱስን ጌታ እንደ ሆነ እንጂ ራሳችንን አንሰብክም።" — 2ኛ ቆሮ 4፥5',
-      viewFull:   'ሙሉ ሳምንታዊ መርሃ ግብር ይመልከቱ →',
     },
 
   },
@@ -261,7 +256,7 @@ const translations = {
       slides: [
         {
           headline: 'Welcome to Gospel Truth Ministry',
-          subtitle: '"For what we proclaim is not ourselves, but Jesus Christ as Lord." — 2 Cor 4:5',
+          subtitle: '"For what we proclaim is not ourselves, but Jesus Christ as Lord."  — 2 Cor 4:5',
         },
         { headline: '', subtitle: '' },
       ],
@@ -377,7 +372,6 @@ const translations = {
       description: `Come as you are. Hear the Word of God preached faithfully. Find a community that loves Christ and one another.`,
       directions:  'Get Directions',
       watchOnline: 'Watch Online',
-      location:    '📍 Jimma, Ethiopia · Sundays 9:00 AM & 6:00 PM',
     },
 
     about: {
@@ -437,14 +431,10 @@ const translations = {
     },
 
     footer: {
-      tagline:    'An evangelical and reformed local church, committed to the Word.',
       quickLinks: 'Quick Links',
       contactUs:  'Contact Us',
-      serviceTime:'Service Times',
-      watchYT:    'Watch on YouTube',
+      location: 'Jimma, Ethiopia',
       copyright:  'All rights reserved.',
-      verse:      '"For what we proclaim is not ourselves, but Jesus Christ as Lord." — 2 Cor 4:5',
-      viewFull:   'View full weekly schedule →',
     },
 
   },

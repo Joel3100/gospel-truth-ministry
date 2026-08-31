@@ -13,7 +13,7 @@ export default function Hero() {
 
   const slides = [
     { id: 1, image: "/hero-1.jpg", ...t("hero.slides")[0] },
-    { id: 2, image: "/hero-channel-banner.jpg", ...t("hero.slides")[1] },
+    { id: 2, image: "/hero_channels_banner.png", ...t("hero.slides")[1] },
   ];
 
   const startAutoPlay = () => {

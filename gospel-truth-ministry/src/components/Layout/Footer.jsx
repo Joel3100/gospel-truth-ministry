@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
-import logo from "../../assets/logo.svg";
-import { FaYoutube, FaFacebook, FaTelegramPlane } from "react-icons/fa";
 import { useLanguage } from "../../i18n/LanguageContext";
+import { FaYoutube, FaFacebook, FaTelegramPlane } from "react-icons/fa";
+import { FiPhone, FiMapPin, FiGlobe } from "react-icons/fi";
+import logo from "../../assets/logo.svg";
 
 const quickLinks = [
   { key: "nav.home", path: "/" },
@@ -13,13 +14,13 @@ const quickLinks = [
 ];
 
 export default function Footer() {
-  const currentYear = new Date().getFullYear();
   const { t, language, fBody } = useLanguage();
+  const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-brand-900 text-brand-200">
+    <footer className="transition-colors duration-200 bg-brand-900 dark:bg-gray-950 text-brand-200">
       {/* ── MAIN FOOTER CONTENT ── */}
-      <div className="max-w-6xl mx-auto px-6 py-14 grid grid-cols-1 md:grid-cols-[1.5fr_1fr_1.5fr] gap-x-16 gap-y-12">
+      <div className="grid max-w-6xl grid-cols-1 gap-12 px-6 mx-auto py-14 md:grid-cols-3">
         {/* ── COLUMN 1: Identity ── */}
         <div className="flex flex-col gap-4">
           <Link to="/" className="flex items-center gap-3 w-fit">
@@ -79,7 +80,9 @@ export default function Footer() {
               <li key={link.path}>
                 <Link
                   to={link.path}
-                  className="inline-block text-sm transition-all duration-200 text-brand-300 hover:text-white hover:translate-x-1"
+                  className={`text-brand-300 dark:text-gray-400 hover:text-white
+                                 hover:translate-x-1 transition-all duration-200
+                                 text-sm inline-block ${fBody}`}
                 >
                   {t(link.key)}
                 </Link>
@@ -94,15 +97,46 @@ export default function Footer() {
             <h3 className="text-lg font-semibold text-white font-heading">
               {t("footer.contactUs")}
             </h3>
-            <ul className="flex flex-col gap-2 text-sm text-brand-300">
-              <li>📍 Jimma, Ethiopia</li>
-              <li>📞 +2519-84-74-43-25</li>
-              <li>
+
+            <ul className="flex flex-col gap-5 text-sm text-brand-300 dark:text-gray-400">
+              {/* Phone 1 */}
+              <li className="flex items-center gap-4">
+                <FiPhone />
                 <a
-                  href="mailto:eyuela3100@gmail.com"
-                  className="transition-colors duration-200 hover:text-white"
+                  href="tel:+251917804407"
+                  className="transition-colors hover:text-white"
                 >
-                  ✉️ eyuela3100@gmail.com
+                  +251 917 804 407
+                </a>
+              </li>
+
+              {/* Phone 2 */}
+              <li className="flex items-center gap-4">
+                <FiPhone />
+                <a
+                  href="tel:+251906202626"
+                  className="transition-colors hover:text-white"
+                >
+                  +251 906 202 626
+                </a>
+              </li>
+
+              {/* Location */}
+              <li className="flex items-center gap-4">
+                <FiMapPin />
+                <span>{t("footer.location")}</span>
+              </li>
+
+              {/* Website */}
+              <li className="flex items-center gap-4">
+                <FiGlobe />
+                <a
+                  href="https://gospeltruthethopia.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="transition-colors hover:text-white"
+                >
+                  gospeltruthethopia.com
                 </a>
               </li>
             </ul>
@@ -112,7 +146,7 @@ export default function Footer() {
 
       {/* ── BOTTOM COPYRIGHT BAR ── */}
       <div className="border border-brand-800">
-        <div className="max-w-6xl px-6 py-4 mx-auto text-xs text-center text-brand-400">
+        <div className="max-w-6xl px-6 py-4 mx-auto text-xs text-center text-brand-400 dark:text-gray-600">
           <p className="italic font-heading text-brand-400">
             © {currentYear} Gospel Truth Ministry. All rights reserved.
           </p>

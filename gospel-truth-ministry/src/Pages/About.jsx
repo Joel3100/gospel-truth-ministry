@@ -7,9 +7,9 @@ export default function About() {
   const beliefs = t("beliefs.items");
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen transition-colors duration-200 bg-gray-50 dark:bg-gray-900">
       {/* Header */}
-      <div className="py-16 bg-brand-900">
+      <div className="py-16 transition-colors duration-200 bg-brand-900 dark:bg-gray-950">
         <div className="max-w-6xl px-6 mx-auto text-center">
           <p className="mb-2 text-sm font-medium tracking-widest uppercase text-brand-300">
             {t("about.eyebrow")}
@@ -26,14 +26,15 @@ export default function About() {
       </div>
 
       {/* Our Story */}
-      <section className="py-20 bg-white">
+      <section className="py-20 transition-colors duration-200 bg-white dark:bg-gray-800">
         <div className="max-w-4xl px-6 mx-auto">
           <div className="mb-12 text-center">
-            <p className="mb-2 text-sm font-medium tracking-widest uppercase text-brand-600">
+            <p className="mb-2 text-sm font-medium tracking-widest uppercase text-brand-600 dark:text-brand-400">
               {t("ourStory.label")}
             </p>
             <h2
-              className={`text-brand-900 text-3xl md:text-4xl font-bold ${fHeading}`}
+              className={`text-brand-900 dark:text-white text-3xl md:text-4xl
+                           font-bold ${fHeading}`}
             >
               {t("ourStory.title")}
             </h2>
@@ -41,7 +42,8 @@ export default function About() {
           </div>
 
           <div
-            className={`flex flex-col gap-6 text-gray-600 leading-relaxed text-lg ${fBody}`}
+            className={`flex flex-col gap-6 text-gray-600 dark:text-gray-300
+                          leading-relaxed text-lg ${fBody}`}
           >
             {Array.isArray(paragraphs) &&
               paragraphs.map((para, i) => <p key={i}>{para}</p>)}
@@ -49,27 +51,31 @@ export default function About() {
 
           {/* Mission + Vision */}
           <div className="grid grid-cols-1 gap-6 mt-12 md:grid-cols-2">
-            <div className="p-6 border bg-brand-50 border-brand-100 rounded-2xl">
-              <p className="mb-2 text-xs font-medium tracking-widest uppercase text-brand-600">
+            <div className="p-6 border bg-brand-50 dark:bg-gray-700 border-brand-100 dark:border-gray-600 rounded-2xl">
+              <p className="mb-2 text-xs font-medium tracking-widest uppercase text-brand-600 dark:text-brand-400">
                 {t("mission.label")}
               </p>
               <h3
-                className={`text-brand-900 text-xl font-bold mb-3 ${fHeading}`}
+                className={`text-brand-900 dark:text-white text-xl font-bold mb-3 ${fHeading}`}
               >
                 {t("mission.title")}
               </h3>
-              <p className={`text-gray-600 text-sm leading-relaxed ${fBody}`}>
+              <p
+                className={`text-gray-600 dark:text-gray-300 text-sm leading-relaxed ${fBody}`}
+              >
                 {t("mission.content")}
               </p>
             </div>
-            <div className="p-6 bg-brand-900 rounded-2xl">
+            <div className="p-6 bg-brand-900 dark:bg-gray-950 rounded-2xl">
               <p className="mb-2 text-xs font-medium tracking-widest uppercase text-brand-300">
                 {t("vision.label")}
               </p>
               <h3 className={`text-white text-xl font-bold mb-3 ${fHeading}`}>
                 {t("vision.title")}
               </h3>
-              <p className={`text-brand-200 text-sm leading-relaxed ${fBody}`}>
+              <p
+                className={`text-brand-200 dark:text-gray-400 text-sm leading-relaxed ${fBody}`}
+              >
                 {t("vision.content")}
               </p>
             </div>
@@ -78,42 +84,45 @@ export default function About() {
       </section>
 
       {/* What We Believe */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 transition-colors duration-200 bg-gray-50 dark:bg-gray-900">
         <div className="max-w-6xl px-6 mx-auto">
           <div className="mb-12 text-center">
-            <p className="mb-2 text-sm font-medium tracking-widest uppercase text-brand-600">
+            <p className="mb-2 text-sm font-medium tracking-widest uppercase text-brand-600 dark:text-brand-400">
               {t("beliefs.label")}
             </p>
             <h2
-              className={`text-brand-900 text-3xl md:text-4xl font-bold mb-4 ${fHeading}`}
+              className={`text-brand-900 dark:text-white text-3xl md:text-4xl
+                           font-bold mb-4 ${fHeading}`}
             >
               {t("beliefs.mainTitle")}
             </h2>
             <p
-              className={`text-gray-500 max-w-xl mx-auto leading-relaxed ${fBody}`}
+              className={`text-gray-500 dark:text-gray-400 max-w-xl mx-auto
+                          leading-relaxed ${fBody}`}
             >
               {t("beliefs.mainDesc")}
             </p>
             <div className="w-16 h-px mx-auto mt-6 bg-brand-400" />
           </div>
 
+          {/* Belief cards */}
           <div className="grid grid-cols-1 gap-6 mb-12 md:grid-cols-2 lg:grid-cols-3">
             {Array.isArray(beliefs) &&
               beliefs.map((belief) => (
                 <div
                   key={belief.id}
-                  className="p-6 transition-all duration-200 bg-white border border-gray-100 shadow-sm rounded-2xl hover:shadow-md hover:-translate-y-1"
+                  className="p-6 transition-all duration-200 bg-white border border-gray-100 shadow-sm dark:bg-gray-800 rounded-2xl dark:border-gray-700 hover:shadow-md hover:-translate-y-1"
                 >
-                  <div className="flex items-center justify-center w-12 h-12 mb-4 text-2xl bg-brand-50 rounded-xl">
+                  <div className="flex items-center justify-center w-12 h-12 mb-4 text-2xl bg-brand-50 dark:bg-gray-700 rounded-xl">
                     {belief.icon}
                   </div>
                   <h3
-                    className={`font-bold text-brand-900 text-lg mb-2 ${fHeading}`}
+                    className={`font-bold text-brand-900 dark:text-white text-lg mb-2 ${fHeading}`}
                   >
                     {belief.title}
                   </h3>
                   <p
-                    className={`text-gray-500 text-sm leading-relaxed ${fBody}`}
+                    className={`text-gray-500 dark:text-gray-400 text-sm leading-relaxed ${fBody}`}
                   >
                     {belief.summary}
                   </p>
@@ -122,7 +131,7 @@ export default function About() {
           </div>
 
           {/* Full confession CTA */}
-          <div className="p-8 text-center bg-brand-900 rounded-2xl">
+          <div className="p-8 text-center transition-colors duration-200 bg-brand-900 dark:bg-gray-950 rounded-2xl">
             <p className="mb-2 text-sm font-medium tracking-widest uppercase text-brand-300">
               {t("about.goDeeper")}
             </p>
@@ -130,7 +139,8 @@ export default function About() {
               {t("about.fullFaith")}
             </h3>
             <p
-              className={`text-brand-200 text-sm leading-relaxed max-w-lg mx-auto mb-6 ${fBody}`}
+              className={`text-brand-200 dark:text-gray-400 text-sm leading-relaxed
+                          max-w-lg mx-auto mb-6 ${fBody}`}
             >
               {t("about.faithDesc")}
             </p>

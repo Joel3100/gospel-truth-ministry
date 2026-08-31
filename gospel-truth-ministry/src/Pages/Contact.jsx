@@ -2,24 +2,25 @@ import { useState } from "react";
 import emailjs from "@emailjs/browser";
 import { useLanguage } from "../i18n/LanguageContext";
 import { FaYoutube, FaFacebook, FaTelegramPlane } from "react-icons/fa";
+import { FiPhone, FiMapPin, FiGlobe } from "react-icons/fi";
 
 const Contact = () => {
   const { t, fBody, fHeading } = useLanguage();
 
   const contactInfo = [
     {
-      icon: "📍",
+      icon: <FiMapPin />,
       labelKey: "contact.address",
-      value: "Kochi, Near Jimma University, Jimma, Ethiopia",
+      value: "Kochi, Jimma, Ethiopia",
     },
     {
-      icon: "📞",
+      icon: <FiPhone />,
       labelKey: "contact.phone",
-      value: "+251 984 743 425",
-      href: "tel:+251984743425",
+      value: "+251 917 804 407",
+      href: "tel:+251917804407",
     },
     {
-      icon: "✉️",
+      icon: <FiGlobe />,
       labelKey: "contact.email",
       value: "eyuela3100@gmail.com",
       href: "mailto:eyuela3100@gmail.com",
@@ -84,9 +85,9 @@ const Contact = () => {
                       focus:ring-2 focus:ring-brand-100 transition-all duration-200`;
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen transition-colors duration-200 bg-gray-50 dark:bg-gray-900">
       {/* Header */}
-      <div className="py-16 bg-brand-900">
+      <div className="py-16 transition-colors duration-200 bg-brand-900 dark:bg-gray-950">
         <div className="max-w-6xl px-6 mx-auto text-center">
           <p className="mb-2 text-sm font-medium tracking-widest uppercase text-brand-300">
             {t("contact.eyebrow")}
@@ -108,22 +109,23 @@ const Contact = () => {
           {contactInfo.map((item, i) => (
             <div
               key={i}
-              className="flex flex-col items-center gap-3 p-6 text-center bg-white border border-gray-100 shadow-sm rounded-2xl"
+              className="flex flex-col items-center gap-3 p-6 text-center bg-white border border-gray-100 shadow-sm dark:bg-gray-800 rounded-2xl dark:border-gray-700"
             >
               <span className="text-3xl">{item.icon}</span>
-              <p className="text-xs font-medium tracking-widest uppercase text-brand-600">
+              <p className="text-xs font-medium tracking-widest uppercase text-brand-600 dark:text-brand-400">
                 {t(item.labelKey)}
               </p>
               {item.href ? (
                 <a
                   href={item.href}
-                  className="text-sm font-medium text-center text-gray-700 transition-colors duration-200 hover:text-brand-600"
+                  className="text-sm font-medium text-center text-gray-700 transition-colors duration-200 dark:text-gray-300 hover:text-brand-600 dark:hover:text-brand-400"
                 >
                   {item.value}
                 </a>
               ) : (
                 <p
-                  className={`text-gray-700 text-sm font-medium text-center ${fBody}`}
+                  className={`text-gray-700 dark:text-gray-300 text-sm
+                               font-medium text-center ${fBody}`}
                 >
                   {item.value}
                 </p>
@@ -133,8 +135,8 @@ const Contact = () => {
         </div>
 
         {/* Social media */}
-        <div className="flex flex-col items-center gap-4 p-8 bg-white border border-gray-100 shadow-sm rounded-2xl">
-          <p className="text-xs font-medium tracking-widest uppercase text-brand-600">
+        <div className="flex flex-col items-center gap-4 p-8 bg-white border border-gray-100 shadow-sm dark:bg-gray-800 rounded-2xl dark:border-gray-700">
+          <p className="text-xs font-medium tracking-widest uppercase text-brand-600 dark:text-brand-400">
             {t("contact.followUs")}
           </p>
           <div className="flex items-center gap-6">
@@ -145,8 +147,8 @@ const Contact = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={s.label}
-                className={`text-gray-400 text-3xl transition-all duration-200
-                             hover:scale-110 ${s.color}`}
+                className={`text-gray-400 dark:text-gray-500 text-3xl
+                             transition-all duration-200 hover:scale-110 ${s.color}`}
               >
                 {s.icon}
               </a>
@@ -155,12 +157,16 @@ const Contact = () => {
         </div>
 
         {/* Google Map */}
-        <div className="overflow-hidden bg-white border border-gray-100 shadow-sm rounded-2xl">
-          <div className="p-5 border-b border-gray-100">
-            <p className={`text-brand-900 font-bold text-lg ${fHeading}`}>
+        <div className="overflow-hidden bg-white border border-gray-100 shadow-sm dark:bg-gray-800 rounded-2xl dark:border-gray-700">
+          <div className="p-5 border-b border-gray-100 dark:border-gray-700">
+            <p
+              className={`text-brand-900 dark:text-white font-bold text-lg ${fHeading}`}
+            >
               {t("contact.findUs")}
             </p>
-            <p className={`text-gray-500 text-sm mt-1 ${fBody}`}>
+            <p
+              className={`text-gray-500 dark:text-gray-400 text-sm mt-1 ${fBody}`}
+            >
               Kochi, Near Jimma University Main Campus, Jimma, Ethiopia
             </p>
           </div>
@@ -178,27 +184,31 @@ const Contact = () => {
         </div>
 
         {/* Contact form */}
-        <div className="p-8 bg-white border border-gray-100 shadow-sm rounded-2xl">
+        <div className="p-8 bg-white border border-gray-100 shadow-sm dark:bg-gray-800 rounded-2xl dark:border-gray-700">
           <div className="mb-8">
-            <p className="mb-1 text-xs font-medium tracking-widest uppercase text-brand-600">
+            <p className="mb-1 text-xs font-medium tracking-widest uppercase text-brand-600 dark:text-brand-400">
               {t("contact.sendMessage")}
             </p>
-            <h2 className={`text-brand-900 text-2xl font-bold ${fHeading}`}>
+            <h2
+              className={`text-brand-900 dark:text-white text-2xl font-bold ${fHeading}`}
+            >
               {t("contact.formTitle")}
             </h2>
           </div>
 
           {/* Success */}
           {status === "success" && (
-            <div className="flex items-start gap-3 p-5 mb-6 border border-green-200 bg-green-50 rounded-xl">
+            <div className="flex items-start gap-3 p-5 mb-6 border border-green-200 bg-green-50 dark:bg-green-900/30 dark:border-green-800 rounded-xl">
               <span className="text-2xl">✅</span>
               <div>
                 <p
-                  className={`text-green-800 font-semibold text-sm ${fHeading}`}
+                  className={`text-green-800 dark:text-green-300 font-semibold text-sm ${fHeading}`}
                 >
                   {t("contact.success")}
                 </p>
-                <p className={`text-green-600 text-sm mt-0.5 ${fBody}`}>
+                <p
+                  className={`text-green-600 dark:text-green-400 text-sm mt-0.5 ${fBody}`}
+                >
                   {t("contact.successMsg")}
                 </p>
               </div>
@@ -207,24 +217,28 @@ const Contact = () => {
 
           {/* Error */}
           {status === "error" && (
-            <div className="flex items-start gap-3 p-5 mb-6 border border-red-200 bg-red-50 rounded-xl">
+            <div className="flex items-start gap-3 p-5 mb-6 border border-red-200 bg-red-50 dark:bg-red-900/30 dark:border-red-800 rounded-xl">
               <span className="text-2xl">⚠️</span>
               <div>
-                <p className={`text-red-800 font-semibold text-sm ${fHeading}`}>
+                <p
+                  className={`text-red-800 dark:text-red-300 font-semibold text-sm ${fHeading}`}
+                >
                   {t("contact.errorTitle")}
                 </p>
-                <p className={`text-red-600 text-sm mt-0.5 ${fBody}`}>
+                <p
+                  className={`text-red-600 dark:text-red-400 text-sm mt-0.5 ${fBody}`}
+                >
                   {t("contact.errorMsg")}
                 </p>
               </div>
             </div>
           )}
 
-          {/* Form fields */}
+          {/* Fields */}
           <div className="flex flex-col gap-4">
             <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
               <div className="flex flex-col gap-1.5">
-                <label className="text-xs font-medium tracking-wide text-gray-600 uppercase">
+                <label className="text-xs font-medium tracking-wide text-gray-600 uppercase dark:text-gray-400">
                   {t("contact.name")}
                 </label>
                 <input
@@ -237,7 +251,7 @@ const Contact = () => {
                 />
               </div>
               <div className="flex flex-col gap-1.5">
-                <label className="text-xs font-medium tracking-wide text-gray-600 uppercase">
+                <label className="text-xs font-medium tracking-wide text-gray-600 uppercase dark:text-gray-400">
                   {t("contact.emailLabel")}
                 </label>
                 <input
@@ -252,7 +266,7 @@ const Contact = () => {
             </div>
 
             <div className="flex flex-col gap-1.5">
-              <label className="text-xs font-medium tracking-wide text-gray-600 uppercase">
+              <label className="text-xs font-medium tracking-wide text-gray-600 uppercase dark:text-gray-400">
                 {t("contact.subject")}
               </label>
               <input
@@ -266,7 +280,7 @@ const Contact = () => {
             </div>
 
             <div className="flex flex-col gap-1.5">
-              <label className="text-xs font-medium tracking-wide text-gray-600 uppercase">
+              <label className="text-xs font-medium tracking-wide text-gray-600 uppercase dark:text-gray-400">
                 {t("contact.message")}
               </label>
               <textarea
@@ -286,7 +300,7 @@ const Contact = () => {
                           transition-all duration-200
                           ${
                             status === "sending"
-                              ? "bg-gray-300 text-gray-500 cursor-not-allowed"
+                              ? "bg-gray-300 dark:bg-gray-600 text-gray-500 cursor-not-allowed"
                               : "bg-brand-600 text-white hover:bg-brand-700 cursor-pointer"
                           }`}
             >

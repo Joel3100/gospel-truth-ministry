@@ -1,7 +1,7 @@
 import { useState } from "react";
-import events from "../data/events";
-import EventCard from "../components/EventCard";
 import { useLanguage } from "../i18n/LanguageContext";
+import EventCard from "../components/EventCard";
+import events from "../data/events";
 
 const today = new Date();
 today.setHours(0, 0, 0, 0);
@@ -19,9 +19,9 @@ export default function Events() {
       : upcomingEvents.filter((e) => e.category === selected);
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      {/* ── PAGE HEADER ── */}
-      <div className="py-16 bg-brand-900">
+    <div className="min-h-screen transition-colors duration-200 bg-gray-50 dark:bg-gray-900">
+      {/* Header */}
+      <div className="py-16 transition-colors duration-200 bg-brand-900 dark:bg-gray-950">
         <div className="max-w-6xl px-6 mx-auto text-center">
           <p className="mb-2 text-sm font-medium tracking-widest uppercase text-brand-300">
             {t("events.pageLabel")}
@@ -38,7 +38,7 @@ export default function Events() {
       </div>
 
       <div className="max-w-6xl px-6 py-12 mx-auto">
-        {/* ── CATEGORY FILTER TABS ── */}
+        {/* Category filter */}
         <div className="flex flex-wrap gap-2 mb-10">
           {categories.map((cat) => (
             <button
@@ -49,7 +49,9 @@ export default function Events() {
                           ${
                             selected === cat
                               ? "bg-brand-600 text-white shadow-sm"
-                              : "bg-white text-gray-600 hover:bg-gray-100 border border-gray-200"
+                              : `bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-300
+                               hover:bg-gray-100 dark:hover:bg-gray-700
+                               border border-gray-200 dark:border-gray-600`
                           }`}
             >
               {cat}
@@ -57,8 +59,8 @@ export default function Events() {
           ))}
         </div>
 
-        {/* ── RESULTS COUNT ── */}
-        <p className={`text-gray-400 text-sm mb-6 ${fBody}`}>
+        {/* Count */}
+        <p className={`text-gray-400 dark:text-gray-500 text-sm mb-6 ${fBody}`}>
           {filtered.length}{" "}
           {language === "am"
             ? `ቀጣይ መርሃ ግብር${filtered.length !== 1 ? "ዎች" : ""}`
@@ -66,7 +68,6 @@ export default function Events() {
           {selected !== "All" && ` — ${selected}`}
         </p>
 
-        {/* ── EVENTS GRID ── */}
         {filtered.length > 0 ? (
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
             {filtered.map((event) => (
@@ -74,15 +75,16 @@ export default function Events() {
             ))}
           </div>
         ) : (
-          /* ── EMPTY STATE ── */
           <div className="py-20 text-center">
             <p className="mb-4 text-4xl">📅</p>
-            <p className={`text-gray-500 font-medium ${fBody}`}>
+            <p
+              className={`text-gray-500 dark:text-gray-400 font-medium ${fBody}`}
+            >
               {t("events.notFound")}
             </p>
             <button
               onClick={() => setSelected("All")}
-              className="mt-4 text-sm text-brand-600 hover:underline"
+              className="mt-4 text-sm text-brand-600 dark:text-brand-400 hover:underline"
             >
               {t("events.viewAllLink")}
             </button>

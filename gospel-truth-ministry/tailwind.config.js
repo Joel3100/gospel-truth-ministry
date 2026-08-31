@@ -4,29 +4,30 @@ export default {
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
+
+  darkMode: 'class',
   theme: {
     extend: {
       colors: {
-        // Gospel Truth Ministry brand blue
         brand: {
           50:  '#eff6ff',
           100: '#dbeafe',
           200: '#bfdbfe',
           300: '#93c5fd',
           400: '#60a5fa',
-          500: '#3b82f6',  // ← main blue
-          600: '#2563eb',  // ← darker blue (buttons, navbar)
+          500: '#3b82f6',
+          600: '#2563eb',
           700: '#1d4ed8',
           800: '#1e40af',
-          900: '#1e3a8a',  // ← darkest blue (footer, hero)
+          900: '#1e3a8a',
         }
       },
       fontFamily: {
-        heading: [ 'Playfair Display','Georgia', 'serif'],   
-        body: ['Inter', 'sans-serif'],
-
-        amharicHeading:   ['Noto Serif Ethiopic', 'Georgia', 'serif'],
-        amharicBody:    ['Noto Sans Ethiopic', 'Inter', 'sans-serif'],
+        heading:        ['Playfair Display', 'Georgia', 'serif'],
+        body:           ['Inter', 'sans-serif'],
+        amharicHeading: ['Nyala', 'Ebrima', 'Kefa', 'Noto Serif Ethiopic', 'serif'],
+        amharicBody:    ['Nyala', 'Ebrima', 'Kefa', 'Noto Sans Ethiopic', 'sans-serif',
+  ],
       },
     },
   },

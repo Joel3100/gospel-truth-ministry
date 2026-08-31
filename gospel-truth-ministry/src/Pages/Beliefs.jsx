@@ -6,8 +6,9 @@ const Beliefs = () => {
   const beliefs = t("beliefs.items");
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      <div className="py-16 bg-brand-900">
+    <div className="min-h-screen transition-colors duration-200 bg-gray-50 dark:bg-gray-900">
+      {/* Header */}
+      <div className="py-16 transition-colors duration-200 bg-brand-900 dark:bg-gray-950">
         <div className="max-w-6xl px-6 mx-auto text-center">
           <p className="mb-2 text-sm font-medium tracking-widest uppercase text-brand-300">
             {t("beliefs.eyebrow")}
@@ -34,21 +35,25 @@ const Beliefs = () => {
           {Array.isArray(beliefs) &&
             beliefs.map((belief, index) => (
               <div key={belief.id} className="flex flex-col gap-4">
+                {/* Number + Title */}
                 <div className="flex items-center gap-4">
                   <div className="flex items-center justify-center flex-shrink-0 w-10 h-10 text-sm font-bold text-white rounded-full bg-brand-600">
                     {index + 1}
                   </div>
                   <h2
-                    className={`text-2xl font-bold text-brand-900 ${fHeading}`}
+                    className={`text-2xl font-bold text-brand-900 dark:text-white ${fHeading}`}
                   >
                     {belief.title}
                   </h2>
                 </div>
 
-                <div className="w-full h-px bg-gray-200 ml-14" />
+                {/* Divider */}
+                <div className="w-full h-px bg-gray-200 dark:bg-gray-700 ml-14" />
 
+                {/* Content */}
                 <p
-                  className={`ml-14 text-gray-600 leading-relaxed text-base ${fBody}`}
+                  className={`ml-14 text-gray-600 dark:text-gray-300
+                            leading-relaxed text-base ${fBody}`}
                 >
                   {belief.content}
                 </p>

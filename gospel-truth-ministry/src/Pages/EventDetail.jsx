@@ -1,6 +1,6 @@
 import { useParams, Link, useNavigate } from "react-router-dom";
-import events from "../data/events";
 import { useLanguage } from "../i18n/LanguageContext";
+import events from "../data/events";
 
 const categoryColors = {
   Worship: "bg-brand-100  text-brand-700",
@@ -19,9 +19,11 @@ export default function EventDetail() {
 
   if (!event) {
     return (
-      <div className="flex flex-col items-center justify-center min-h-screen gap-4 bg-gray-50">
+      <div className="flex flex-col items-center justify-center min-h-screen gap-4 transition-colors duration-200 bg-gray-50 dark:bg-gray-900">
         <p className="text-6xl">🔍</p>
-        <h2 className={`text-brand-900 text-2xl font-bold ${fHeading}`}>
+        <h2
+          className={`text-brand-900 dark:text-white text-2xl font-bold ${fHeading}`}
+        >
           {t("events.notFoundMsg")}
         </h2>
         <Link
@@ -46,7 +48,7 @@ export default function EventDetail() {
   });
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen transition-colors duration-200 bg-gray-50 dark:bg-gray-900">
       {/* Hero */}
       <div className="relative overflow-hidden h-72 md:h-96">
         {event.image ? (
@@ -80,11 +82,11 @@ export default function EventDetail() {
         </button>
 
         <div className="absolute z-10 flex items-center gap-4 bottom-6 left-6">
-          <div className="px-4 py-3 text-center bg-white shadow-lg rounded-xl">
+          <div className="px-4 py-3 text-center bg-white shadow-lg dark:bg-gray-800 rounded-xl">
             <p className="text-xs font-bold leading-none tracking-wide uppercase text-brand-600">
               {month}
             </p>
-            <p className="mt-1 text-3xl font-bold leading-none text-brand-900">
+            <p className="mt-1 text-3xl font-bold leading-none text-brand-900 dark:text-white">
               {day}
             </p>
           </div>
@@ -96,7 +98,7 @@ export default function EventDetail() {
               {event.category}
             </span>
             <h1
-              className={`text-white text-2xl md:text-3xl font-bold mt-2 
+              className={`text-white text-2xl md:text-3xl font-bold mt-2
                            drop-shadow-lg max-w-lg ${fHeading}`}
             >
               {event.title}
@@ -105,12 +107,14 @@ export default function EventDetail() {
         </div>
       </div>
 
-      {/* Detail content */}
+      {/* Content */}
       <div className="max-w-4xl px-6 py-12 mx-auto">
         <div className="grid grid-cols-1 gap-10 md:grid-cols-3">
           {/* Description */}
           <div className="md:col-span-2">
-            <h2 className={`text-brand-900 text-xl font-bold mb-4 ${fHeading}`}>
+            <h2
+              className={`text-brand-900 dark:text-white text-xl font-bold mb-4 ${fHeading}`}
+            >
               {t("events.about")}
             </h2>
             <div className="w-10 h-px mb-6 bg-brand-400" />
@@ -119,7 +123,7 @@ export default function EventDetail() {
                 para.trim() && (
                   <p
                     key={i}
-                    className={`text-gray-600 leading-relaxed mb-4 ${fBody}`}
+                    className={`text-gray-600 dark:text-gray-300 leading-relaxed mb-4 ${fBody}`}
                   >
                     {para.trim()}
                   </p>
@@ -128,8 +132,10 @@ export default function EventDetail() {
           </div>
 
           {/* Info card */}
-          <div className="flex flex-col gap-5 p-6 bg-white border border-gray-100 shadow-sm rounded-2xl h-fit">
-            <h3 className={`text-brand-900 font-bold text-lg ${fHeading}`}>
+          <div className="flex flex-col gap-5 p-6 bg-white border border-gray-100 shadow-sm dark:bg-gray-800 rounded-2xl dark:border-gray-700 h-fit">
+            <h3
+              className={`text-brand-900 dark:text-white font-bold text-lg ${fHeading}`}
+            >
               {t("events.details")}
             </h3>
 
@@ -140,10 +146,12 @@ export default function EventDetail() {
               { label: t("events.category"), value: event.category },
             ].map((item, i) => (
               <div key={i} className="flex flex-col gap-1">
-                <p className="text-xs font-medium tracking-wide text-gray-400 uppercase">
+                <p className="text-xs font-medium tracking-wide text-gray-400 uppercase dark:text-gray-500">
                   {item.label}
                 </p>
-                <p className={`text-gray-800 font-medium text-sm ${fBody}`}>
+                <p
+                  className={`text-gray-800 dark:text-gray-200 font-medium text-sm ${fBody}`}
+                >
                   {item.value}
                 </p>
               </div>

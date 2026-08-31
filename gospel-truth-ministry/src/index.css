@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+Ethiopic:wght@300;400;500;600;700&family=Noto+Serif+Ethiopic:wght@400;500;600;700&family=Abyssinica+SIL&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -14,4 +14,20 @@ body {
   font-family: 'Inter', sans-serif;
   background-color: #ffffff;
   color: #1f2937;
+  transition: background-color 200ms ease, color 200ms ease;
+}
+
+.dark body {
+  background-color: #0f172a;
+  color: #f1f5f9;
+}
+
+.amharic {
+  font-family: 'Nyala', 'Ebrima', 'Kefa', 'Noto Sans Ethiopic', sans-serif;
+  line-height: 1.9;
+}
+
+/* Ensure Amharic headings always render bold */
+.font-amharicHeading {
+  font-weight: 700;
 }
