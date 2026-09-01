@@ -30,6 +30,7 @@ export default function Navbar() {
     { name: t("nav.home"), path: "/" },
     { name: t("nav.sermons"), path: "/sermons" },
     { name: t("nav.events"), path: "/events" },
+    { name: t("nav.blog"), path: "/blog" },
     { name: t("nav.about"), path: "/about" },
     { name: t("nav.contact"), path: "/contact" },
   ];
